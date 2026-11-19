@@ -18,6 +18,14 @@
    "nom": "TOURNOI DOUBLE COBM GRADE 4",
    "ville": "BENI MELLAL"
   },
+  "TOURNOI DOUBLE FRMT 11-14 ANS|TCF|19-12-2026": {
+   "club": "TCF",
+   "debut": "19-12-2026",
+   "fin": "20-12-2026",
+   "inscr_avant": "14-12-2026",
+   "nom": "TOURNOI DOUBLE FRMT 11-14 ANS",
+   "ville": "FES"
+  },
   "TOURNOI DOUBLE LANORIA G4 DAMES|LANORIA|31-10-2026": {
    "club": "LANORIA",
    "debut": "31-10-2026",
@@ -34,6 +42,14 @@
    "nom": "TOURNOI DOUBLE LANORIA GRADE 4",
    "ville": "MOHAMMEDIA"
   },
+  "TOURNOI DOUBLE OCK GRADE 4|OCK|28-11-2026": {
+   "club": "OCK",
+   "debut": "28-11-2026",
+   "fin": "13-12-2026",
+   "inscr_avant": "23-11-2026",
+   "nom": "TOURNOI DOUBLE OCK GRADE 4",
+   "ville": "KHOURIBGA"
+  },
   "TOURNOI DOUBLE TCR GRADE 3|TCR|31-10-2026": {
    "club": "TCR",
    "debut": "31-10-2026",
@@ -42,6 +58,30 @@
    "nom": "TOURNOI DOUBLE TCR GRADE 3",
    "ville": "TAROUDANT"
   },
+  "TOURNOI DOUBLE TSCM GRADE 3 (annulé)|TSCM|18-10-2026": {
+   "club": "TSCM",
+   "debut": "18-10-2026",
+   "fin": "25-10-2026",
+   "inscr_avant": "01-10-2026",
+   "nom": "TOURNOI DOUBLE TSCM GRADE 3 (annulé)",
+   "ville": "MARRAKECH"
+  },
+  "TOURNOI DOUBLE USATT GRADE 4|USATT|05-12-2026": {
+   "club": "USATT",
+   "debut": "05-12-2026",
+   "fin": "13-12-2026",
+   "inscr_avant": "31-11-2026",
+   "nom": "TOURNOI DOUBLE USATT GRADE 4",
+   "ville": "TIZNIT"
+  },
+  "TOURNOI FRMT 13 et 14 ans|RTCMO|12-12-2026": {
+   "club": "RTCMO",
+   "debut": "12-12-2026",
+   "fin": "13-12-2026",
+   "inscr_avant": "07-12-2026",
+   "nom": "TOURNOI FRMT 13 et 14 ans",
+   "ville": "MOHAMMEDIA"
+  },
   "TOURNOI LANORIA GRADE 4|LANORIA|31-10-2026": {
    "club": "LANORIA",
    "debut": "31-10-2026",
@@ -49,6 +89,14 @@
    "inscr_avant": "26-10-2026",
    "nom": "TOURNOI LANORIA GRADE 4",
    "ville": "MOHAMMEDIA"
+  },
+  "TOURNOI OCK GRADE 4|OCK|28-11-2026": {
+   "club": "OCK",
+   "debut": "28-11-2026",
+   "fin": "13-12-2026",
+   "inscr_avant": "23-11-2026",
+   "nom": "TOURNOI OCK GRADE 4",
+   "ville": "KHOURIBGA"
   },
   "TOURNOI RTCMO 10-12 ANS|RTCMO|28-11-2026": {
    "club": "RTCMO",
@@ -65,7 +113,39 @@
    "inscr_avant": "10-11-2026",
    "nom": "TOURNOI TCM 10-12 ANS",
    "ville": "MEKNES"
+  },
+  "TOURNOI TCR GRADE 3|TCR|31-10-2026": {
+   "club": "TCR",
+   "debut": "31-10-2026",
+   "fin": "08-11-2026",
+   "inscr_avant": "26-10-2026",
+   "nom": "TOURNOI TCR GRADE 3",
+   "ville": "TAROUDANT"
+  },
+  "TOURNOI TSCM +35 ANS|TSCM|18-10-2026": {
+   "club": "TSCM",
+   "debut": "18-10-2026",
+   "fin": "25-10-2026",
+   "inscr_avant": "13-10-2026",
+   "nom": "TOURNOI TSCM +35 ANS",
+   "ville": "MARRAKECH"
+  },
+  "TOURNOI TSCM GRADE 3|TSCM|18-10-2026": {
+   "club": "TSCM",
+   "debut": "18-10-2026",
+   "fin": "25-10-2026",
+   "inscr_avant": "13-10-2026",
+   "nom": "TOURNOI TSCM GRADE 3",
+   "ville": "MARRAKECH"
+  },
+  "TOURNOI USATT GRADE 4|USATT|05-12-2026": {
+   "club": "USATT",
+   "debut": "05-12-2026",
+   "fin": "13-12-2026",
+   "inscr_avant": "30-11-2026",
+   "nom": "TOURNOI USATT GRADE 4",
+   "ville": "TIZNIT"
   }
  },
- "version": 2
+ "version": 3
 }
