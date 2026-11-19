@@ -1,0 +1,70 @@
+{
+ "derniere_lecture_ok": "2026-11-19",
+ "echecs": 0,
+ "tournois": {
+  "TOURNOI COBM GRADE 4|COBM|21-11-2026": {
+   "club": "COBM",
+   "debut": "21-11-2026",
+   "fin": "29-11-2026",
+   "inscr_avant": "16-11-2026",
+   "nom": "TOURNOI COBM GRADE 4",
+   "ville": "BENI MELLAL"
+  },
+  "TOURNOI DOUBLE COBM GRADE 4|COBM|21-11-2026": {
+   "club": "COBM",
+   "debut": "21-11-2026",
+   "fin": "29-11-2026",
+   "inscr_avant": "16-11-2026",
+   "nom": "TOURNOI DOUBLE COBM GRADE 4",
+   "ville": "BENI MELLAL"
+  },
+  "TOURNOI DOUBLE LANORIA G4 DAMES|LANORIA|31-10-2026": {
+   "club": "LANORIA",
+   "debut": "31-10-2026",
+   "fin": "15-11-2026",
+   "inscr_avant": "02-11-2026",
+   "nom": "TOURNOI DOUBLE LANORIA G4 DAMES",
+   "ville": "MOHAMMEDIA"
+  },
+  "TOURNOI DOUBLE LANORIA GRADE 4|LANORIA|31-10-2026": {
+   "club": "LANORIA",
+   "debut": "31-10-2026",
+   "fin": "15-11-2026",
+   "inscr_avant": "26-10-2026",
+   "nom": "TOURNOI DOUBLE LANORIA GRADE 4",
+   "ville": "MOHAMMEDIA"
+  },
+  "TOURNOI DOUBLE TCR GRADE 3|TCR|31-10-2026": {
+   "club": "TCR",
+   "debut": "31-10-2026",
+   "fin": "08-11-2026",
+   "inscr_avant": "26-10-2026",
+   "nom": "TOURNOI DOUBLE TCR GRADE 3",
+   "ville": "TAROUDANT"
+  },
+  "TOURNOI LANORIA GRADE 4|LANORIA|31-10-2026": {
+   "club": "LANORIA",
+   "debut": "31-10-2026",
+   "fin": "15-11-2026",
+   "inscr_avant": "26-10-2026",
+   "nom": "TOURNOI LANORIA GRADE 4",
+   "ville": "MOHAMMEDIA"
+  },
+  "TOURNOI RTCMO 10-12 ANS|RTCMO|28-11-2026": {
+   "club": "RTCMO",
+   "debut": "28-11-2026",
+   "fin": "13-12-2026",
+   "inscr_avant": "23-11-2026",
+   "nom": "TOURNOI RTCMO 10-12 ANS",
+   "ville": "MOHAMMEDIA"
+  },
+  "TOURNOI TCM 10-12 ANS|TCM|14-11-2026": {
+   "club": "TCM",
+   "debut": "14-11-2026",
+   "fin": "29-11-2026",
+   "inscr_avant": "10-11-2026",
+   "nom": "TOURNOI TCM 10-12 ANS",
+   "ville": "MEKNES"
+  }
+ }
+}
