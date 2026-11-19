@@ -11,6 +11,7 @@ from playwright.sync_api import sync_playwright
 
 URL = os.environ.get("FRMT_URL", "https://info.frmt.ma/FRMT_LIVE_WB27")
 ETAT = "tournois_vus.json"
+VERSION = 2
 DATE = re.compile(r"^\d{2}-\d{2}-\d{4}$")
 
 # Repère chaque ligne du tableau : le plus petit bloc qui contient 3 dates
@@ -29,6 +30,33 @@ JS_LIGNES = r"""
     out.push({parts, enfants, texte: t.replace(/\s+/g, ' ')});
   }
   return out;
+}
+"""
+
+
+# Marque les cadres défilants qui contiennent des dates (le tableau des tournois).
+JS_CADRES = r"""
+() => {
+  const re = /\d{2}-\d{2}-\d{4}/;
+  const cadres = [...document.querySelectorAll('*')].filter(e => {
+    const s = getComputedStyle(e);
+    return /(auto|scroll)/.test(s.overflowY) && e.scrollHeight > e.clientHeight + 20
+           && re.test(e.innerText || '');
+  });
+  const se = document.scrollingElement;
+  if (se && se.scrollHeight > se.clientHeight + 20 && !cadres.includes(se)) cadres.push(se);
+  cadres.forEach((e, i) => e.setAttribute('data-frmt', i));
+  return cadres.length;
+}
+"""
+
+JS_DEFILER = r"""
+([i, haut]) => {
+  const e = document.querySelector(`[data-frmt="${i}"]`);
+  if (!e) return -1;
+  const avant = e.scrollTop;
+  e.scrollTop = haut ? 0 : avant + Math.max(50, e.clientHeight * 0.7);
+  return e.scrollTop === avant && !haut ? -1 : e.scrollTop;
 }
 """
 
@@ -83,13 +111,39 @@ def lire_tournois():
                             viewport={"width": 1400, "height": 2000})
         page.goto(URL, wait_until="domcontentloaded", timeout=60000)
         lignes = []
+
+        def lire():
+            for f in page.frames:
+                try:
+                    lignes.extend(f.evaluate(JS_LIGNES))
+                except Exception:
+                    pass
+
         for _ in range(20):  # attend jusqu'à ~60 s que le tableau se remplisse
             page.wait_for_timeout(3000)
-            lignes = [l for f in page.frames for l in f.evaluate(JS_LIGNES)]
+            lire()
             if lignes:
-                page.wait_for_timeout(3000)  # laisse finir le chargement
-                lignes = [l for f in page.frames for l in f.evaluate(JS_LIGNES)]
                 break
+        if lignes:
+            page.wait_for_timeout(3000)
+            lire()
+            # fait défiler chaque cadre de haut en bas pour charger toutes les lignes
+            for f in page.frames:
+                try:
+                    n = f.evaluate(JS_CADRES)
+                except Exception:
+                    continue
+                for i in range(n):
+                    f.evaluate(JS_DEFILER, [i, True])
+                    page.wait_for_timeout(1500)
+                    lire()
+                    for _ in range(300):
+                        if f.evaluate(JS_DEFILER, [i, False]) < 0:
+                            break
+                        page.wait_for_timeout(700)
+                        lire()
+                    page.wait_for_timeout(1500)
+                    lire()
         page.screenshot(path="capture.png", full_page=True)
         with open("page.txt", "w", encoding="utf-8") as f:
             f.write(page.inner_text("body"))
@@ -120,10 +174,11 @@ def main():
         print("Erreur de lecture :", e)
         tournois = {}
 
-    if etat is None:
-        etat = {"tournois": {}, "echecs": 0}
+    if etat is None or etat.get("version") != VERSION:
+        etat = {"tournois": {}, "echecs": 0, "version": VERSION}
         if tournois:
-            liste = "\n".join(f"• {t['nom']} ({t['ville']})" for t in tournois.values())
+            noms = [f"• {t['nom']} ({t['ville']})" for t in tournois.values()]
+            liste = "\n".join(noms[:20]) + (f"\n… et {len(noms) - 20} autres" if len(noms) > 20 else "")
             telegram(f"✅ Surveillance FRMT activée. {len(tournois)} tournois déjà en ligne :\n{liste}")
 
     elif not tournois:
