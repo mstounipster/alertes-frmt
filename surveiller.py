@@ -11,7 +11,7 @@ from playwright.sync_api import sync_playwright
 
 URL = os.environ.get("FRMT_URL", "https://info.frmt.ma/FRMT_LIVE_WB27")
 ETAT = "tournois_vus.json"
-VERSION = 2
+VERSION = 3
 DATE = re.compile(r"^\d{2}-\d{2}-\d{4}$")
 
 # Repère chaque ligne du tableau : le plus petit bloc qui contient 3 dates
@@ -34,17 +34,14 @@ JS_LIGNES = r"""
 """
 
 
-# Marque les cadres défilants qui contiennent des dates (le tableau des tournois).
+# Repère les barres de défilement (le tableau WebDev utilise une barre séparée, sans texte).
 JS_CADRES = r"""
 () => {
-  const re = /\d{2}-\d{2}-\d{4}/;
   const cadres = [...document.querySelectorAll('*')].filter(e => {
     const s = getComputedStyle(e);
-    return /(auto|scroll)/.test(s.overflowY) && e.scrollHeight > e.clientHeight + 20
-           && re.test(e.innerText || '');
+    return e !== document.scrollingElement && /(auto|scroll)/.test(s.overflowY)
+           && e.scrollHeight > e.clientHeight + 5;
   });
-  const se = document.scrollingElement;
-  if (se && se.scrollHeight > se.clientHeight + 20 && !cadres.includes(se)) cadres.push(se);
   cadres.forEach((e, i) => e.setAttribute('data-frmt', i));
   return cadres.length;
 }
@@ -56,6 +53,7 @@ JS_DEFILER = r"""
   if (!e) return -1;
   const avant = e.scrollTop;
   e.scrollTop = haut ? 0 : avant + Math.max(50, e.clientHeight * 0.7);
+  e.dispatchEvent(new Event('scroll'));
   return e.scrollTop === avant && !haut ? -1 : e.scrollTop;
 }
 """
@@ -135,12 +133,12 @@ def lire_tournois():
                     continue
                 for i in range(n):
                     f.evaluate(JS_DEFILER, [i, True])
-                    page.wait_for_timeout(1500)
+                    page.wait_for_timeout(2000)
                     lire()
                     for _ in range(300):
                         if f.evaluate(JS_DEFILER, [i, False]) < 0:
                             break
-                        page.wait_for_timeout(700)
+                        page.wait_for_timeout(1200)
                         lire()
                     page.wait_for_timeout(1500)
                     lire()
