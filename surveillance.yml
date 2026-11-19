@@ -1,0 +1,53 @@
+name: Surveillance tournois FRMT
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # toutes les heures, à la 17e minute
+  workflow_dispatch:        # bouton pour lancer un test à la main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: surveillance-frmt
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer le navigateur
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Vérifier la page FRMT
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python surveiller.py
+
+      - name: Sauvegarder la liste des tournois vus
+        if: always()
+        run: |
+          git config user.name "robot-frmt"
+          git config user.email "robot-frmt@users.noreply.github.com"
+          git add tournois_vus.json || true
+          git diff --cached --quiet || (git commit -m "Mise à jour liste tournois" && git push)
+
+      - name: Garder une capture pour diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diagnostic
+          path: |
+            capture.png
+            page.txt
+          retention-days: 3
+          if-no-files-found: ignore
