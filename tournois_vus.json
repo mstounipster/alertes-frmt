@@ -42,6 +42,14 @@
    "nom": "TOURNOI DOUBLE LANORIA GRADE 4",
    "ville": "MOHAMMEDIA"
   },
+  "TOURNOI DOUBLE OCK GRADE 4|OCK|05-12-2026": {
+   "club": "OCK",
+   "debut": "05-12-2026",
+   "fin": "13-12-2026",
+   "inscr_avant": "30-11-2026",
+   "nom": "TOURNOI DOUBLE OCK GRADE 4",
+   "ville": "KHOURIBGA"
+  },
   "TOURNOI DOUBLE OCK GRADE 4|OCK|28-11-2026": {
    "club": "OCK",
    "debut": "28-11-2026",
@@ -90,6 +98,14 @@
    "nom": "TOURNOI LANORIA GRADE 4",
    "ville": "MOHAMMEDIA"
   },
+  "TOURNOI OCK GRADE 4|OCK|05-12-2026": {
+   "club": "OCK",
+   "debut": "05-12-2026",
+   "fin": "13-12-2026",
+   "inscr_avant": "30-11-2026",
+   "nom": "TOURNOI OCK GRADE 4",
+   "ville": "KHOURIBGA"
+  },
   "TOURNOI OCK GRADE 4|OCK|28-11-2026": {
    "club": "OCK",
    "debut": "28-11-2026",
@@ -130,11 +146,27 @@
    "nom": "TOURNOI TSCM +35 ANS",
    "ville": "MARRAKECH"
   },
+  "TOURNOI TSCM +35 ANS|TSCM|19-12-2026": {
+   "club": "TSCM",
+   "debut": "19-12-2026",
+   "fin": "25-12-2026",
+   "inscr_avant": "14-12-2026",
+   "nom": "TOURNOI TSCM +35 ANS",
+   "ville": "MARRAKECH"
+  },
   "TOURNOI TSCM GRADE 3|TSCM|18-10-2026": {
    "club": "TSCM",
    "debut": "18-10-2026",
    "fin": "25-10-2026",
    "inscr_avant": "13-10-2026",
+   "nom": "TOURNOI TSCM GRADE 3",
+   "ville": "MARRAKECH"
+  },
+  "TOURNOI TSCM GRADE 3|TSCM|19-12-2026": {
+   "club": "TSCM",
+   "debut": "19-12-2026",
+   "fin": "25-12-2026",
+   "inscr_avant": "14-12-2026",
    "nom": "TOURNOI TSCM GRADE 3",
    "ville": "MARRAKECH"
   },
