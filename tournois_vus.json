@@ -138,6 +138,14 @@
    "nom": "TOURNOI TCR GRADE 3",
    "ville": "TAROUDANT"
   },
+  "TOURNOI TSCM +35 +45 ANS|TSCM|19-12-2026": {
+   "club": "TSCM",
+   "debut": "19-12-2026",
+   "fin": "25-12-2026",
+   "inscr_avant": "14-12-2026",
+   "nom": "TOURNOI TSCM +35 +45 ANS",
+   "ville": "MARRAKECH"
+  },
   "TOURNOI TSCM +35 ANS|TSCM|18-10-2026": {
    "club": "TSCM",
    "debut": "18-10-2026",
