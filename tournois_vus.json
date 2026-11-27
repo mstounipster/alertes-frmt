@@ -2,6 +2,14 @@
  "derniere_lecture_ok": "2026-11-27",
  "echecs": 0,
  "tournois": {
+  "TOURNOI ASTL GRADE 4|ASTL|30-12-2026": {
+   "club": "ASTL",
+   "debut": "30-12-2026",
+   "fin": "03-01-2076",
+   "inscr_avant": "25-12-2026",
+   "nom": "TOURNOI ASTL GRADE 4",
+   "ville": "LAAYOUNE"
+  },
   "TOURNOI COBM GRADE 4|COBM|21-11-2026": {
    "club": "COBM",
    "debut": "21-11-2026",
